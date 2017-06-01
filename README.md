@@ -1,8 +1,8 @@
 # FlashForwarder
-##what is UMDGW
+## what is UMDGW
 UMDGW is abbreviation of universal market data gateway, and it is used to fast forward the market data in china stock market.
 
-##how does udmgw achieve ultralow latency
+## how does udmgw achieve ultralow latency
 
 * Actor-based concurrent model
 * multi-size memory pool
@@ -17,6 +17,6 @@ UMDGW is abbreviation of universal market data gateway, and it is used to fast f
 * log4cplus
 
 
-##Contacts
+## Contacts
 if you have problems, questions, ideas or suggestions, please contact us by posting to fanticker@gmail.com
 
