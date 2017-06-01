@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
+Version: 4.1.0
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>行情监控系统</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<!-- BEGIN GLOBAL MANDATORY STYLES  http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all-->
+<!-- <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/> -->
+<!-- 开始全球强制性风格 -->
+<link href="assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>		
+<link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<!-- 结束全球强制性风格 -->
+<!-- 开始页面级别的风格-->
+<link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+<!-- 结束页面级别的风格 -->
+
+<!-- 开始的主题风格 -->
+<link href="assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
+<link href="assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+<!-- 结束的主题风格 -->
+
+
+<!--修改样式-->
+<style>
+	body{
+		background-color:#fff;
+	}
+	.page-header.navbar{
+		background-color: #73808b;
+	}
+	.page-logo{
+	    padding-top:10px;
+	}
+	.portlet.light > .portlet-title > .caption {
+		width:100%;
+	}
+	.flot-overlay{
+		height:100px;
+	}
+	.chart{
+		height:200px
+	}
+	
+	.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .arrow:before,
+ 	.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > .arrow.open:before, 
+	 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .arrow:before, 
+	  .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > .arrow.open:before, 
+	  .page-sidebar .page-sidebar-menu > li.active > a > .arrow:before, .page-sidebar .page-sidebar-menu > li.active > a > .arrow.open:before, .page-sidebar .page-sidebar-menu > li.active.open > a > .arrow:before,
+ 	.page-sidebar .page-sidebar-menu > li.active.open > a > .arrow.open:before,
+	.page-sidebar .page-sidebar-menu > li.active.open > a ,.page-sidebar .page-sidebar-menu > li.active > a,
+	.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a > i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a > i,
+	.page-sidebar .page-sidebar-menu > li.active > a > i, .page-sidebar .page-sidebar-menu > li.active.open > a > i{
+	    color:black;
+	}
+	.page-sidebar .page-sidebar-menu > li.active.open > a,.page-sidebar .page-sidebar-menu > li.active > a  {
+	    color:black;
+		background-color:white;
+	}
+	.page-sidebar .page-sidebar-menu > li.active.open > a: hover{
+	    color:black;
+		background-color:white;
+	} 
+	.page-sidebar .sidebar-toggler {
+		background: url(../image/intense.png);
+	}
+	 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a,
+  	 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a,
+	 .page-sidebar .page-sidebar-menu > li.active > a:hover, .page-sidebar .page-sidebar-menu > li.active.open > a:hover{
+	    color:lightgray;
+		background-color:white;
+	 }
+	 
+	.page-sidebar .page-sidebar-menu > li:hover > a, .page-sidebar .page-sidebar-menu > li.open > a {
+		background: white;
+		color: white;
+	}
+	.page-sidebar-closed .page-content-wrapper .page-content {
+		margin-left: 0px !important;
+	}
+   .page-sidebar .page-sidebar-menu .sub-menu > li.active > a {
+	  background: lightgray !important;
+	}
+	.page-sidebar .page-sidebar-menu .sub-menu > li > a:hover{
+	    background-color:lightgray !important;
+	}
+	.page-content-wrapper .page-content{
+	    padding-bottom: 0px;
+	    padding-top:10px;
+	}
+
+
+	.col-md-6.col-sm-12{
+		padding-left:5px;
+		padding-right:5px; 
+	}
+	.portlet.light{
+		margin-bottom:5px;
+	}
+	.page-footer{
+		background-color:white;
+	}
+	.left_table{
+		font-size:16px;
+		color:#304460;
+		width:100%
+	}
+	.right_table{
+		font-size:16px;
+		color:#304460;
+		width:100%
+	}
+	.tr-td{
+		width:130px;
+	}
+	.instantaneous{
+		float:right;
+		margin-right:5px;
+		width:120px;
+		text-align:right;
+	}
+	#loading{
+	   	position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    margin-left: -100px;
+	    z-index: 100;
+	    background-color: #fff;
+	    padding: 1px;
+	}
+</style>
+
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-container-bg-solid" onload="showPage()">
+
+<!-- BEGIN loading -->
+	<div id="loading" class="loading">
+		<img src="./image/loading.gif">
+	</div>  
+<!-- END loading -->
+
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+	<!-- BEGIN HEADER INNER -->
+	<div class="page-header-inner">
+		<!-- BEGIN LOGO -->
+		<div class="page-logo">
+			
+			<a href="table_basic.html"><span style="font-size:18px;color:#07c1d3;margin-top:10px"><img src="img/return30.png" alt="logo"/></span><span style="font-size:18px;color:#fff;">返回</span></a>
+			
+		</div>
+		<!-- END LOGO -->
+	</div>
+	<!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+
+<div class="page-container" style="display:none;">
+	<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper">
+		
+		<div class="page-sidebar "   style='background-color:white;'>
+			<!-- BEGIN SIDEBAR MENU -->
+			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+			<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+			<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+			<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+			<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+			<ul class="page-sidebar-menu " id="hostname_source_menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+		
+				
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
+
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper"  style='background-color:white;'>
+		<div class="page-content">
+		    <div class='row' style='background-color:white;margin-bottom:5px;padding:10px 10px;'>
+		    
+			<div class="page-bar" style="margin: 0px -10px 0 -10px;">
+				<ul class="page-breadcrumb">
+					<li>
+						<i class="fa fa-home"></i>
+						<a id="page-bar-hostname">SH_LEVEL1</a>
+					</li>
+				</ul>
+			</div>
+			<!-- END PAGE HEADER-->
+			   <div class='col-md-6' id="left_div_table">
+				   <table class="left_table">
+					   <tr >
+							<td class="tr-td">数据源类型:</td><td id="source_type"></td>
+					   </tr>
+					   <tr id="sourceTr">
+							<td>数据源:</td><td id="source"></td>
+					   </tr>
+					   <tr id="filePathTr">
+							<td>文件路径:</td><td id="file_path"></td>
+					   </tr>
+					   <tr id="inputCompressionConfigTr">
+							<td>入口压缩配置:</td><td id="input_compression_config"></td>
+					   </tr>
+				    	<tr id="totalMissedPacketsTr">
+							<td>丢包数:</td><td id="total_missed_packets"></td>
+					   </tr>
+					   <tr>
+							<td>历史文件路径:</td><td id="record_folder"></td>
+					   </tr>
+				   </table>
+			   </div>
+			   
+			   <div class='col-md-6' id="right_div_table">
+				   <table class="right_table">
+					   <tr id="protocolTr">
+							<td>协议:</td><td id="protocol"></td>
+					   </tr>
+					    <tr id="syncFileTr">
+							<td>同步文件路径:</td><td id="sync_file"></td>
+					   </tr>
+					   <tr>
+							<td class="tr-td">发布服务地址:</td><td id="publish_uri"></td>
+					   </tr>
+					   <tr>
+							<td>出口压缩配置:</td><td id="output_compression_config"></td>
+					   </tr>
+					   
+					   <tr id="connectStateTr">
+							<td>连接状态:</td><td id="connect_status"></td>
+					   </tr>
+				   </table>
+			   </div>
+			</div>
+			<div style="clear:both;"></div>
+			<!-- <div style="padding-top:5px;"></div> -->
+			<!--
+			<div class='row' style='background-color:white;margin-bottom:5px;padding:20px 20px;'>
+				<img style="padding-bottom:0;padding-top:0;margin-top:-8px;" src="./image/chart.png" alt="logo"/>
+				<span style="color:#05c1d3;font-weight:bold;font-size:16px;">图表</span>
+			</div>
+			-->
+			<div class="row" >
+				<div class="col-md-6 col-sm-12">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption" style="float:left;width:30%">
+								<i class="icon-bar-chart font-green-sharp hide"></i>
+								<span class="caption-subject font-green-sharp bold uppercase"><font color="#649ddf">入口</font></span>
+								<span class="caption-helper"><font color="#a1b0be">速率(KB/S)</font></span>
+								
+							</div>		
+							<div style="float:left;width:70%">
+								<table style="font-size:8px;color:#666;float: right;margin-top:-10px;margin-right:5px;">
+									<tr><td style="width:50px;">实时值:</td><td id="instantaneous_speed" style="width:70px;"></td><td id="instantaneous_speed_time" style="width:140px;"></td></tr>
+									<tr><td>最大值:</td><td id="instantaneous_max_speed"></td><td id="instantaneous_max_speed_time"></td></tr>
+									<tr><td>最小值:</td><td id="instantaneous_min_speed"></td><td id="instantaneous_min_speed_time"></td></tr>
+								</table>
+							</div>							
+						</div>
+						<div class="portlet-body">
+							<div id="site_statistics_loading1">
+								<img src="./assets/admin/layout/img/loading.gif" alt="loading"/>
+							</div>
+							<div id="site_statistics_content1" class="display-none">
+								<div id="inputspeed_statistics" class="chart">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				
+				<div class="col-md-6 col-sm-12" style="">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption" style="float:left;width:30%">
+								<i class="icon-bar-chart font-green-sharp hide"></i>
+								<span class="caption-subject font-green-sharp bold uppercase"><font color="#34aa44">出口</font></span>
+								<span class="caption-helper"><font color="#a1b0be">速率(KB/S)</font></span>
+								<span id="instantaneous_total_received_bytes" class="instantaneous"></span>
+							</div>
+							<div style="float:left;width:70%">
+								<table style="font-size:8px;color:#666;float: right;margin-top:-10px;margin-right:5px;">
+									<tr><td style="width:50px;">实时值:</td><td id="instantaneous_outputspeed" style="width:70px;"></td><td style="width:80px;">已发送字节数:</td><td id="total_bytes_sent" style="width:100px;"></td></tr>
+									<tr><td>最大值:</td><td id="instantaneous_max_outputspeed"></td><td colspan="2" id="instantaneous_max_outputspeed_time"></td></tr>
+									<tr><td>最小值:</td><td id="instantaneous_min_outputspeed"></td><td colspan="2" id="instantaneous_min_outputspeed_time"></td></tr>
+								</table>
+							</div>								
+						</div>
+						<div class="portlet-body">
+							<div id="site_statistics_loading2">
+								<img src="./assets/admin/layout/img/loading.gif" alt="loading"/>
+							</div>
+							<div id="site_statistics_content2" class="display-none">
+								<div id="outputspeed_statistics" class="chart">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				
+				<div class="col-md-6 col-sm-12">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light " >
+						<div class="portlet-title">
+							<div class="caption" style="float:left;width:30%">
+								<i class="icon-bar-chart font-green-sharp hide"></i>
+								<span class="caption-subject font-green-sharp bold uppercase"><font color="#f79e9b">连接数</font></span>
+								<span class="caption-helper"><font color="#a1b0be">(个)</font></span>
+							</div>
+							<div style="float:left;width:70%">
+								<table style="font-size:8px;color:#666;float: right;margin-top:-10px;margin-right:5px;">
+									<tr><td style="width:80px;">实时值:</td><td id="instantaneous_session_count" style="width:140px;"></td></tr>
+									<tr><td>最近连接时间:</td><td id="last_session_timestamp"></td></tr>
+								</table>
+							</div>								
+						</div>
+						<div class="portlet-body">
+							<div id="site_statistics_loading3">
+								<img src="./assets/admin/layout/img/loading.gif" alt="loading"/>
+							</div>
+							<div id="site_statistics_content3" class="display-none">
+								<div id="session_count_statistics" class="chart">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+				<div class="col-md-6 col-sm-12" style="">
+					<!-- BEGIN PORTLET-->
+					<div class="portlet light ">
+						<div class="portlet-title">
+							<div class="caption" style="float:left;width:30%">
+								<i class="icon-bar-chart font-green-sharp hide"></i>
+								<span class="caption-subject font-green-sharp bold uppercase"><font color="#efc40e">压缩比</font></span>
+								<span class="caption-helper"><font color="#a1b0be">(倍)</font></span>
+								
+							</div>
+							<div style="float:left;width:70%">
+								<table style="font-size:8px;color:#666;float: right;margin-top:-10px;margin-right:5px;">
+									<tr><td style="width:80px;">已解压字节数:</td><td id="total_decoded_bytes" style="width:100px;"></td></tr>
+									<tr><td style="width:80px;">已接收字节数:</td><td id="total_received_msgs" style="width:70px;"></td></tr>
+									<!--<tr><td>实时值:</td><td id="instantaneous_total_bytes_sent" style="width:70px;"></td></tr>-->
+								</table>
+							</div>		
+						</div>
+						<div class="portlet-body">
+							<div id="site_statistics_loading4">
+								<img src="./assets/admin/layout/img/loading.gif" alt="loading"/>
+							</div>
+							<div id="site_statistics_content4" class="display-none">
+								<div id="compress_rate_statistics" class="chart">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END PORTLET-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+	<div class="page-footer-inner">
+		 2014 &copy; 上海中畅信息科技有限公司. <a href="#" title="Zork" target="_blank"></a>
+	</div>
+	<div class="scroll-to-top">
+		<i class="icon-arrow-up"></i>
+	</div>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="./assets/global/plugins/respond.min.js"></script>
+<script src="./assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="./assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="./assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+
+<!-- <script src="./assets/global/plugins/json2.js" type="text/javascript"></script> -->
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="./assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+
+<script src="./assets/global/plugins/flot/jquery.flot.min.js"></script>
+<script src="./assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="./assets/global/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="./assets/global/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="./assets/global/plugins/flot/jquery.flot.crosshair.min.js"></script>
+<script src="./assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+
+<script src="./assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
+<script src="./assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+<script src="./assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="./assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="./assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="./assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="./assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="./assets/admin/pages/scripts/index.js" type="text/javascript"></script>
+<script src="./assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+<script src="./assets/admin/pages/scripts/charts-flotcharts.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+var hostName;//定义主机
+var urlConfig;
+var urlStatus;
+var assignment_tag = 1;//设置一个标记，当第一次加载时，将第一个keyName赋值给hostname
+
+//里面的方法都是并发
+jQuery(document).ready(function() {    
+   Metronic.init(); // init metronic core componets
+   Layout.init(); // init layout
+   QuickSidebar.init(); // init quick sidebar
+   Demo.init(); // init demo features
+   getCommonData(hostName);
+});
+
+/**
+ * 页面加载完成后显示页面
+ */
+function showPage(){
+    $('#loading').remove();
+    $('.page-container').show();
+}
+
+<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+//不显示菜单栏
+function closeSidebarMenu(){
+	if(assignment_tag<=2){
+		//修改body的class
+		var bodyClass = $("body").attr("class");
+		//alert(bodyClass);
+		$("body").removeClass(bodyClass);
+		$("body").addClass(bodyClass+" page-sidebar-closed");
+		
+		//隐藏菜单，将class  page-sidebar-menu变为page-sidebar-menu page-sidebar-menu-closed
+		$("#hostname_source_menu").removeClass("page-sidebar-menu");
+		$("#hostname_source_menu").addClass("page-sidebar-menu page-sidebar-menu-closed");
+		
+		//修改page-logo样式
+		$(".page-logo").css("width","300px");
+		$(".page-logo").css("margin","10px");
+		//$(".page-sidebar-wrapper").css("width","10px");
+		//$(".page-sidebar-closed .page-content-wrapper .page-content").css("margin-left","0px !important");
+		$("#hostname_source_menu").hide();
+	}
+}
+
+
+//格式化url,去掉url后面的参数 0.0.0.0:22012?enable_inc_algo=true
+function formatURL(str){
+	if(null!=str&&undefined!=str){
+		var strArray = str.split("?");
+		str = strArray[0];
+		return str;
+	}else{
+		return "";
+	}
+}
+
+//得到数据源file:\/\/Z:\/dbf\/sjshq.dbf
+function getDatasource(sourceStr){
+	var n = sourceStr.indexOf(":\/\/");
+	var matchString = sourceStr.substring(n+3,sourceStr.length);
+	return matchString;
+}
+
+//同步文件路径，如果路径过长则截取0-35字符，并且显示title属性
+function getSyncFile(syncFileStr){
+	//var syncFileStr = "source=192.168.0.105:22012?update_only=true&compress_level=1&compress_level=1&compress_level=1&compress_level=1&compress_level=1";
+	if(syncFileStr.length>35){
+		var str = syncFileStr.substring(0,35);
+		str = str+'...';
+		$("#sync_file").attr("title",syncFileStr);
+		$("#sync_file").html(str);
+	}else{
+		$("#sync_file").html(syncFileStr);//同步文件路径
+	}
+}
+
+//字符串过长则截取0-35字符，并且显示title属性
+function subAndSetString(strId,str){
+	//str = "source=192.168.0.105:22012?update_only=true&compress_level=1&compress_level=1&compress_level=1&compress_level=1&compress_level=1";
+	if(str.length<=35){
+		$("#"+strId).html(str);
+	}else{
+		$("#"+strId).attr("title",str);
+		str = str.substring(0,35);
+		str = str + '...';
+		$("#"+strId).html(str);
+	}
+}
+
+//根据状态值返回状态html
+function returnStatusHtml(connect_status){
+	var status_html;
+	if(connect_status=='0'){
+		status_html = "初始";
+	}else if(connect_status=='1'){
+		status_html = "正在连接";
+	}else if(connect_status=='2'){
+		status_html = "正在登陆";
+	}else if(connect_status=='3'){
+		status_html = "正常";
+	}else if(connect_status=='4'){
+		status_html = "断开";
+	}else{
+		status_html = "";
+	}
+	return status_html;
+}
+
+//得到入口压缩配置 source=192.168.0.105:22012?update_only=true&compress_level=1
+function getInputCompressionConfig(hostName,inputUrl){
+	var inputCompressionConfig = "未启用";
+	if(undefined!=inputUrl&&null!=inputUrl&&""!=inputUrl){
+		if(inputUrl.indexOf("update_only=true")!=-1){
+			inputCompressionConfig = "增量";
+			var reg = /compress_level=\d{1,2}/;//正则匹配compress_level=数字
+			var matchString = inputUrl.match(reg);//得到匹配后的字符串
+			if(matchString!==null){
+			inputCompressionConfig += "+通用"+matchString.toString().split("=")[1];
+			}
+		}else{
+			var reg = /compress_level=\d{1,2}/;//正则匹配compress_level=数字
+			var matchString = inputUrl.match(reg);//得到匹配后的字符串
+			if(matchString!==null){
+				inputCompressionConfig = "通用"+matchString.toString().split("=")[1];
+			}
+		}
+
+		
+	}
+	return inputCompressionConfig;
+}
+
+//得到出口压缩配置 publish_uri enable_inc_algo=true",没有就  无
+function getOutputCompressionConfig(hostName,outputUrl){
+	var outputCompressionConfig = "未启用";
+	if(hostName=="SH_LEVEL1"||hostName=="SZ_LEVEL1"){
+		outputCompressionConfig = "已启用";
+	}
+	if(undefined!=outputUrl&&null!=outputUrl&&""!=outputUrl){
+		if(outputUrl.indexOf("enable_inc_algo=true")!=-1){
+			outputCompressionConfig = "增量";
+			var reg = /compress_level=\d{1,2}/;//正则匹配compress_level=数字
+			var matchString = outputUrl.match(reg);//得到匹配后的字符串
+			if(matchString!==null){
+				outputCompressionConfig += "+通用"+matchString.toString().split("=")[1];
+			}
+		}else{
+			var reg = /compress_level=\d{1,2}/;//正则匹配compress_level=数字
+			var matchString = outputUrl.match(reg);//得到匹配后的字符串
+			if(matchString!==null){
+				outputCompressionConfig = "通用"+matchString.toString().split("=")[1];
+			}
+		}
+	
+	}
+	return outputCompressionConfig;
+}
+
+//时间戳转日期2015/12/9 下午11:10:28
+function getLocalTime(nS) {     
+	if(undefined!=nS&&null!=nS&&0!=nS&&""!=nS){
+		return new Date(parseInt(nS)).format('yyyy/MM/dd hh:mm:ss');
+	}else{
+		return "";
+	}
+}   
+
+Date.prototype.format = function(formatStr)   
+{   
+    var str = formatStr;   
+    var Week = ['日','一','二','三','四','五','六'];  
+    str=str.replace(/yyyy|YYYY/,this.getFullYear());   
+    str=str.replace(/yy|YY/,(this.getYear() % 100)>9?(this.getYear() % 100).toString():'0' + (this.getYear() % 100));   
+  
+    str=str.replace(/MM/,this.getMonth()>9?(this.getMonth()+1).toString():'0' + (this.getMonth()+1));   
+    str=str.replace(/M/g,this.getMonth());   
+  
+    str=str.replace(/w|W/g,Week[this.getDay()]);   
+  
+    str=str.replace(/dd|DD/,this.getDate()>9?this.getDate().toString():'0' + this.getDate());   
+    str=str.replace(/d|D/g,this.getDate());   
+	
+	//为啥每个都要replace两次
+	//getUTCHours()  当前时间是GMT时间  比UTC时间快8小时，需要获取UTC的小时数
+    //str=str.replace(/hh|HH/,this.getHours()>9?this.getUTCHours().toString():'0' + this.getUTCHours());
+	str=str.replace(/hh|HH/,this.getUTCHours());	
+    str=str.replace(/h|H/g,this.getHours());
+	
+    str=str.replace(/mm/,this.getMinutes()>9?this.getMinutes().toString():'0' + this.getMinutes());   
+    str=str.replace(/m/g,this.getMinutes());   
+  
+    str=str.replace(/ss|SS/,this.getSeconds()>9?this.getSeconds().toString():'0' + this.getSeconds());   
+    str=str.replace(/s|S/g,this.getSeconds());   
+  
+    return str;   
+}   
+
+//菜单点击事件，hostName主机名，index第几个数据源
+function clickFunction(hostName,index,obj){
+	$(".active").removeClass("active");
+	$(obj).parent("li").addClass("active");
+	resetTableHtml(hostName);
+	updatePageBar(hostName,index);
+	getOneSourceData(hostName,index);
+	//Index.initCharts(hostName,index); // init index page's custom scripts
+	Index.initChartArray(hostName,index);//切换数据
+}
+
+//拼接左右表格,重置表格中内容
+function resetTableHtml(hostName){
+	var leftTableInnerHtml = '<table class="left_table">'+
+					   '<tr>'+
+							'<td class="tr-td">数据源类型:</td><td id="source_type"></td>'+
+					   '</tr>'+
+					   '<tr id="sourceTr">'+
+							'<td>数据源:</td><td id="source"></td>'+
+					   '</tr>'+
+					  
+					   '<tr id="filePathTr" style="display:none">'+
+							'<td>文件路径:</td><td id="file_path"></td>'+
+					   '</tr>'+
+					   '<tr id="inputCompressionConfigTr">'+
+							'<td>入口压缩配置:</td><td id="input_compression_config"></td>'+
+					   '</tr>'+
+					   '<tr id="totalMissedPacketsTr">'+
+							'<td>丢包数:</td><td id="total_missed_packets"></td>'+
+					   '</tr>'+
+					   '<tr>'+
+							'<td>历史文件路径:</td><td id="record_folder"></td>'+
+					   '</tr>'+
+				   '</table>';
+	var rightTableInnerHtml = '<table class="right_table">'+
+					   '<tr id="protocolTr">'+
+							'<td>协议:</td><td id="protocol"></td>'+
+					   '</tr>'+
+					   '<tr id="syncFileTr">'+
+							'<td>同步文件路径:</td><td id="sync_file"></td>'+
+					   '</tr>'+
+					   '<tr>'+
+							'<td class="tr-td">发布服务地址:</td><td id="publish_uri"></td>'+
+					   '</tr>'+
+					   '<tr>'+
+							'<td>出口压缩配置:</td><td id="output_compression_config"></td>'+
+					   '</tr>'+
+					  '<tr id="connectStateTr">'+
+							'<td>连接状态:</td><td id="connect_status"></td>'+
+					   '</tr>'+
+				   '</table>';
+	$("#left_div_table").html(leftTableInnerHtml);
+	$("#right_div_table").html(rightTableInnerHtml);	
+}
+
+//点击后修改page-bar中的值
+function updatePageBar(hostName,index){
+	$("#page-bar-hostname").html(hostName);
+}
+
+/*
+*获取某个主机第index个数据源的数据
+*/
+function getOneSourceData(hostName,index){
+	//var url = "source=192.168.0.105:22012?update_only=true&compress_level=1";
+	//alert(getInputCompressionConfig(url));
+	var oneHostConfigData = dataConfigDetails[hostName];//当前主机配置信息
+	var source = oneHostConfigData.source;//sourceArray一个主机有多个source,用，分隔开
+	var sourceString = source.toString();//对象转字符串
+	var sourceArray = new Array();
+	sourceArray = sourceString.split("|");
+	//如果只有一个源,隐藏page-bar的箭头和源名称
+	if(sourceArray.length==1){
+		$("#page-bar-arrow").hide();
+		$("#page-bar-sourcename").hide();
+	}else{
+		$("#page-bar-arrow").show();
+		$("#page-bar-sourcename").show();
+	}
+	/*
+	*数据源类型
+	*文件路径和数据源
+	*发布服务地址和组播地址
+	*入口压缩配置
+	*/
+	var dataSource = sourceArray[index];
+	if(""!=dataSource){
+		$("#input_compression_config").html(getInputCompressionConfig(hostName,dataSource));//入口压缩配置
+		var dataSourceArray = sourceArray[0].split(":");
+		var dataSourceTitle = dataSourceArray[0];
+		if(dataSourceTitle.indexOf("file")!=-1){
+			$("#source_type").html("文件");
+			if(index==0&&dataSourceArray.length>1){//文件路径和数据源
+				subAndSetString("file_path",formatURL(getDatasource(sourceArray[0])));
+				//$("#file_path").html(formatURL(getDatasource(sourceArray[0])));
+			}else{
+				subAndSetString("file_path",formatURL(dataSource));
+				//$("#file_path").html(formatURL(dataSource));
+			}
+			//file显示隐藏
+			$("#filePathTr").show();//显示文件路径
+			$("#sourceTr").hide();//隐藏数据源
+			$("#totalMissedPacketsTr").hide();//隐藏丢包数
+		}else if("pgm"==dataSourceTitle){
+			$("#source_type").html("组播");
+			if(index==0&&dataSourceArray.length>1){//文件路径和数据源
+				subAndSetString("source",formatURL(getDatasource(sourceArray[0])));
+				//$("#source").html(formatURL(getDatasource(sourceArray[0])));
+			}else{
+				subAndSetString("source",formatURL(dataSource));
+				//$("#source").html(formatURL(dataSource));
+			}
+			
+			//pgm显示隐藏
+			$("#filePathTr").hide();
+			$("#sourceTr").show();
+			$("#inputCompressionConfigTr").hide();//隐藏入口压缩配置
+			$("#totalMissedPacketsTr").show();//显示丢包数
+			$("#connectStateTr").hide();//隐藏链接状态
+		}else if("tcp"==dataSourceTitle){
+			$("#source_type").html("TCP");
+			if(index==0&&dataSourceArray.length>1){//文件路径和数据源
+				subAndSetString("source",formatURL(getDatasource(sourceArray[0])));
+				//$("#source").html(formatURL(getDatasource(sourceArray[0])));
+			}else{
+				subAndSetString("source",formatURL(dataSource));
+				//$("#source").html(formatURL(dataSource));
+			}
+			//tcp显示隐藏
+			$("#filePathTr").hide();
+			$("#sourceTr").show();
+			$("#totalMissedPacketsTr").hide();//隐藏丢包数
+
+		}else{
+			$("#source_type").html("TCP");
+			//$("#source").html(formatURL(dataSource));
+			subAndSetString("source",formatURL(dataSource));
+			$("#connectStateTr").show();
+
+			//tcp显示隐藏
+			$("#filePathTr").hide();
+			$("#sourceTr").show();
+			$("#totalMissedPacketsTr").hide();//隐藏丢包数
+		}
+	}
+	
+	var publish_uri = oneHostConfigData.publish_uri;
+	$("#publish_uri").html(formatURL(publish_uri));//发布服务地址
+	$("#output_compression_config").html(getOutputCompressionConfig(hostName,publish_uri));//出口压缩配置
+	$("#protocol").html(oneHostConfigData.protocol);//协议
+
+	$("#record_folder").html(formatURL(oneHostConfigData.record_folder));//历史文件路径
+	
+	//根据主机判断显示，隐藏哪些内容
+	if(hostName=='SH_LEVEL1'||hostName=='SZ_LEVEL1'){
+		$("#protocolTr").hide();//隐藏协议
+		//$("#sync_file").html(oneHostConfigData.sync_file);//同步文件路径
+		subAndSetString("sync_file",oneHostConfigData.sync_file);
+	}
+	if(hostName=='SH_LEVEL2'){
+		$("#protocolTr").hide();//隐藏协议
+		// $("#sync_file").html(oneHostConfigData.sync_file);//同步文件路径
+		subAndSetString("sync_file",oneHostConfigData.sync_file);
+	}
+	if(hostName=='SZ_V5'){
+		$("#syncFileTr").hide();//隐藏同步文件路径
+	}
+}
+
+//请求config和status接口，将数据全部存放到dataConfigDetails和dataStatusDetails中
+var dataConfigDetails;
+var dataStatusDetails;
+
+function GetQueryString(name) {
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if(r!=null)return  unescape(r[2]); return null;
+}
+
+//获取某个主机公共数据
+function getCommonData(hostName){
+	
+	var uri = GetQueryString('uri');
+	//urlConfig = url.match(reg)[0]+'config';
+	//urlStatus = url.match(reg)[0]+'status';
+	urlConfig = "http://" + uri + "/config";
+	urlStatus = "http://" + uri + "/status";
+	$.ajax({
+			url: urlConfig,
+			async:true,
+			dataType: "jsonp",
+         	jsonp: "jsonpcallback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+			type:"post", 
+			success:function(data){
+				
+				dataConfigDetails = data;
+				//动态拼接主机列表,数据源列表
+				var inhtml = "";
+				
+
+				//keyName是json中的key
+				for(keyName in data){
+					var oneHostConfigData = data[keyName];
+					//通过source是否为空判断该文件是否展示
+					if(oneHostConfigData.source!=null&&oneHostConfigData.source!=""){
+						//sourceArray一个主机有多个source,用，分隔开
+						var source = oneHostConfigData.source;
+						var sourceString = source.toString();//对象转字符串
+						var sourceArray = new Array();
+						sourceArray = sourceString.split("|");
+						var index = 0;
+						
+						if(assignment_tag==1){
+							//为hostName设置默认值，默认显示一个
+							if(""==hostName||null==hostName||undefined==hostName){
+								hostName = keyName;
+								Index.initCharts(hostName); // init index page's custom scripts
+								updatePageBar(hostName,index);//修改PageBar
+							}
+						}
+						//拼接菜单
+						inhtml += '<li class="start open">'+
+						'<a href="javascript:;" onClick="clickFunction(\''+keyName+'\','+index+',this)">'+
+						'<i class="icon-home"></i>'+
+						'<span class="title"><font color="#222222"><b>'+keyName+'</b></font></span>'+
+						'</a></li>';
+						assignment_tag++;
+										
+					}
+				}
+				$(".page-sidebar-menu").append(inhtml);
+	
+				//获取状态数据
+				$.ajax({
+					url: urlStatus,
+					async:true,
+					type:"post", 
+					success:function(data){
+						dataStatusDetails = data;
+						var oneHostStatusDetails = data[hostName];//一个主机多组状态，有s结尾
+						
+						//默认获取当前主机第一组状态信息
+						var isArrayOrJson = oneHostStatusDetails["connect_status"];
+						var oneHostStatusDetail;//一个主机某组状态，结尾没有加s
+						if(isArrayOrJson==undefined){
+							oneHostStatusDetail = oneHostStatusDetails[0];//默认第一组状态
+						}else{
+							oneHostStatusDetail = oneHostStatusDetails;
+						}
+						$("#connect_status").html(returnStatusHtml(oneHostStatusDetail.connect_status));//连接状态
+						$("#last_session_timestamp").html(getLocalTime(oneHostStatusDetail.last_session_timestamp));//连接建立时间
+						$("#last_msg_timestamp").html(getLocalTime(oneHostStatusDetail.last_msg_timestamp));//最近消息时间
+					}
+				});
+				getOneSourceData(hostName,0);
+				closeSidebarMenu();
+			}
+	});
+
+	
+}
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>
